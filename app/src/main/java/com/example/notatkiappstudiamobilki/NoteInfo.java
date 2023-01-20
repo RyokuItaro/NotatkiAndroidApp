@@ -6,37 +6,37 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 
 public final class NoteInfo implements Parcelable {
-    private String mTitle;
-    private String mText;
+    private String title;
+    private String text;
 
     public NoteInfo(String title, String text) {
-        mTitle = title;
-        mText = text;
+        this.title = title;
+        this.text = text;
     }
 
     public NoteInfo(Parcel source) {
-        mTitle = source.readString();
-        mText = source.readString();
+        title = source.readString();
+        text = source.readString();
     }
 
     public String getTitle() {
-        return mTitle;
+        return title;
     }
 
     public void setTitle(String title) {
-        mTitle = title;
+        this.title = title;
     }
 
     public String getText() {
-        return mText;
+        return text;
     }
 
     public void setText(String text) {
-        mText = text;
+        this.text = text;
     }
 
     private String getCompareKey() {
-        return mTitle + "|" + mText;
+        return title + "|" + text;
     }
 
     @Override
@@ -66,8 +66,8 @@ public final class NoteInfo implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeString(mTitle);
-        dest.writeString(mText);
+        dest.writeString(title);
+        dest.writeString(text);
     }
 
     public static final Parcelable.Creator<NoteInfo> CREATOR =

@@ -6,54 +6,45 @@ import java.util.List;
 public class DataManager {
     private static DataManager dmInstance = null;
 
-    private List<NoteInfo> mNotes = new ArrayList<>();
+    private List<NoteInfo> noteList = new ArrayList<>();
 
     public static DataManager getInstance() {
         if(dmInstance == null) {
             dmInstance = new DataManager();
-            dmInstance.initializeExampleNotes();
+            dmInstance.initializeNotes();
         }
         return dmInstance;
     }
 
     public List<NoteInfo> getNotes() {
-        return mNotes;
+        return noteList;
     }
 
     public int createNewNote() {
         NoteInfo note = new NoteInfo(null, null);
-        mNotes.add(note);
-        return mNotes.size() - 1;
+        noteList.add(note);
+        return noteList.size() - 1;
     }
 
     public void removeNote(int index) {
-        mNotes.remove(index);
+        noteList.remove(index);
     }
 
     private DataManager() {
     }
 
-    public void initializeExampleNotes() {
+    public void initializeNotes() {
         final DataManager dm = getInstance();
 
-        mNotes.add(new NoteInfo("Dynamic intent resolution",
-                "Wow, intents allow components to be resolved at runtime"));
-        mNotes.add(new NoteInfo("Delegating intents",
-                "PendingIntents are powerful; they delegate much more than just a component invocation"));
-
-        mNotes.add(new NoteInfo("Service default threads",
-                "Did you know that by default an Android Service will tie up the UI thread?"));
-        mNotes.add(new NoteInfo("Long running operations",
-                "Foreground Services can be tied to a notification icon"));
-
-        mNotes.add(new NoteInfo("Parameters",
-                "Leverage variable-length parameter lists"));
-        mNotes.add(new NoteInfo("Anonymous classes",
-                "Anonymous classes simplify implementing one-use types"));
-
-        mNotes.add(new NoteInfo("Compiler options",
-                "The -jar option isn't compatible with with the -cp option"));
-        mNotes.add(new NoteInfo("Serialization",
-                "Remember to include SerialVersionUID to assure version compatibility"));
+        noteList.add(new NoteInfo("Dom",
+                "Posprzątać chate"));
+        noteList.add(new NoteInfo("Studia",
+                "Mobilki trzeba machnąć"));
+        noteList.add(new NoteInfo("red",
+                "sus"));
+        noteList.add(new NoteInfo("black",
+                "sus"));
+        noteList.add(new NoteInfo("Paczka",
+                "Odebrać paczkie"));
     }
 }

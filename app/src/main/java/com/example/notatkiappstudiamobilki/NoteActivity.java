@@ -102,6 +102,10 @@ public class NoteActivity extends AppCompatActivity {
             noteCancelling = true;
             finish();
         }
+        else if (id == R.id.noteDelete){
+            DataManager.getInstance().removeNote(id);
+            finish();
+        }
 
         return super.onOptionsItemSelected(item);
     }

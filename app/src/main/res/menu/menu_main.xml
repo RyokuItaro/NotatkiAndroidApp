@@ -13,4 +13,7 @@
         android:orderInCategory="100"
         android:title="Send as email"
         app:showAsAction="ifRoom|withText" />
+    <item
+        android:id="@+id/noteDelete"
+        android:title="Delete" />
 </menu>
