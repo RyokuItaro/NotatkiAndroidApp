@@ -21,13 +21,10 @@ import java.util.List;
 public class NotesActivity extends AppCompatActivity {
     private NoteRecyclerAdapter noteRecyclerAdapter;
 
-    //private ArrayAdapter<NoteInfo> adapter;
-
     @Override
     protected void onResume() {
         super.onResume();
         noteRecyclerAdapter.notifyDataSetChanged();
-        //adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -45,23 +42,7 @@ public class NotesActivity extends AppCompatActivity {
             }
         });
 
-        //final ListView listNotes = findViewById(R.id.listNotes);
-        //List<NoteInfo> notes = DataManager.getInstance().getNotes();
-        //adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, notes);
-
-        //listNotes.setAdapter(adapter);
-
-        //listNotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        //    @Override
-        //    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        //        Intent intent = new Intent(NotesActivity.this, NoteActivity.class);
-                //NoteInfo note = (NoteInfo) listNotes.getItemAtPosition(position);
-        //        intent.putExtra(NoteActivity.notePos, position);
-//
-        //        startActivity(intent);
-        //    }
-        //});
-        final RecyclerView notes = (RecyclerView) findViewById(R.id.listNotes);
+        final RecyclerView notes = findViewById(R.id.listNotes);
         final LinearLayoutManager notesLM = new LinearLayoutManager(this);
         notes.setLayoutManager(notesLM);
 

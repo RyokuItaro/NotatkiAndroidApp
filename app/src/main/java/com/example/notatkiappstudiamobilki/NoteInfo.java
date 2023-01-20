@@ -6,28 +6,17 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 
 public final class NoteInfo implements Parcelable {
-    private CourseInfo mCourse;
     private String mTitle;
     private String mText;
 
-    public NoteInfo(CourseInfo course, String title, String text) {
-        mCourse = course;
+    public NoteInfo(String title, String text) {
         mTitle = title;
         mText = text;
     }
 
     public NoteInfo(Parcel source) {
-        mCourse = source.readParcelable(CourseInfo.class.getClassLoader());
         mTitle = source.readString();
         mText = source.readString();
-    }
-
-    public CourseInfo getCourse() {
-        return mCourse;
-    }
-
-    public void setCourse(CourseInfo course) {
-        mCourse = course;
     }
 
     public String getTitle() {
@@ -47,7 +36,7 @@ public final class NoteInfo implements Parcelable {
     }
 
     private String getCompareKey() {
-        return mCourse.getCourseId() + "|" + mTitle + "|" + mText;
+        return mTitle + "|" + mText;
     }
 
     @Override
@@ -77,7 +66,6 @@ public final class NoteInfo implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeParcelable(mCourse, 0);
         dest.writeString(mTitle);
         dest.writeString(mText);
     }

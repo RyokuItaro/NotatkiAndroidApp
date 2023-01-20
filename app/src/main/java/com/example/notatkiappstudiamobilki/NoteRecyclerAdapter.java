@@ -35,8 +35,8 @@ public class NoteRecyclerAdapter extends RecyclerView.Adapter<NoteRecyclerAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         NoteInfo note = listNotes.get(position);
-        holder.textTitle.setText(note.getCourse().getTitle());
-        holder.textContent.setText(note.getTitle());
+        holder.textTitle.setText(note.getTitle());
+        holder.textContent.setText(note.getText());
         holder.currPos = position;
     }
 
@@ -53,8 +53,8 @@ public class NoteRecyclerAdapter extends RecyclerView.Adapter<NoteRecyclerAdapte
 
         public ViewHolder(View itemView){
             super(itemView);
-            textTitle = (TextView) itemView.findViewById(R.id.text_title2);
-            textContent = (TextView) itemView.findViewById(R.id.text_title);
+            textTitle = itemView.findViewById(R.id.text_title2);
+            textContent = itemView.findViewById(R.id.text_title);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
